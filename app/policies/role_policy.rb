@@ -7,7 +7,6 @@ class RolePolicy
   end
 
   def create?
-    false
-    # user.super_admin?
+    user.super_admin?
   end
 end
