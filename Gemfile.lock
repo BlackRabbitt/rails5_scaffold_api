@@ -96,6 +96,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.4)
+    rack-cors (1.0.2)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
@@ -181,6 +182,7 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   pundit
+  rack-cors
   rails (~> 5.2.0)
   rspec-rails (~> 3.7)
   spring
