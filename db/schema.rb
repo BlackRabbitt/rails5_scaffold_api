@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_10_083058) do
+ActiveRecord::Schema.define(version: 2018_04_13_092621) do
+
+  create_table "roles", force: :cascade do |t|
+    t.string "label", default: "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label"], name: "index_roles_on_label"
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "user_id", null: false
+    t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
