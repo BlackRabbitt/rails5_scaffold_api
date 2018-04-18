@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   include UserRoles
 
   has_and_belongs_to_many :roles
+
+  def token_validation_response
+    UserSerializer.new( self, root: false ).as_json
+  end
 end
