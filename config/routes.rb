@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api, default: {format: :json} do
     api_version(1, true) do
-      mount_devise_token_auth_for 'User', at: 'auth'
+      mount_devise_token_auth_for 'User', at: 'auth', controllers: { registrations: "api/overrides/registrations" }
 
       resources :roles, only: :create
     end

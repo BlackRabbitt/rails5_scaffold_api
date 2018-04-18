@@ -1,5 +1,6 @@
 class Api::V1::RolesController < ApplicationController
   before_action :authenticate_api_user!
+  after_action :verify_authorized
 
   def create
     role = Role.new(label: roles_params[:label])
