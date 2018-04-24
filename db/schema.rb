@@ -12,6 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2018_04_13_092621) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "subdomain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_organizations_on_name"
+    t.index ["subdomain"], name: "index_organizations_on_subdomain"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "label", default: "user"
     t.datetime "created_at", null: false
@@ -20,8 +32,8 @@ ActiveRecord::Schema.define(version: 2018_04_13_092621) do
   end
 
   create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "role_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "role_id", null: false
+    t.bigint "user_id", null: false
     t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
   end
 
