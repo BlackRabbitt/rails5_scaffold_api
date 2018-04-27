@@ -1,3 +1,7 @@
+##
+# Organization is the main client of the product. Product is distributed among several organization and seperates them with subdomain.
+# After organization is created, apartment gem callback will be called that creates different schema for the organization to achieve multitency architecture.
+#
 class Organization < ApplicationRecord
   after_create :create_tenant
 
