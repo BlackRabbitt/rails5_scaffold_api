@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'devise'
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
+Dir['./spec/helpers/**/*.rb'].sort.each { |f| require f }
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -29,6 +30,8 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+include SessionHelper
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:
@@ -43,9 +46,6 @@ RSpec.configure do |config|
   config.before(:all, type: :request) do
     host! 'tapp.example.com'
   end
-
-  # config.include Devise::Test::ControllerHelpers, :type => :controller
-  # config.extend ControllerMacros, :type => :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
