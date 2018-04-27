@@ -24,7 +24,9 @@ describe "proper access", type: :request do
       login(@current_api_user.email, @current_api_user.password)
       expect(response.status).to eq(200)
     end
+  end
 
+  context "context: authorization" do
     it "gives you an unauthorized error if you don't have enough role" do
       login(@current_api_user.email, @current_api_user.password)
       auth_params = get_auth_params_from_login_response_headers(response)

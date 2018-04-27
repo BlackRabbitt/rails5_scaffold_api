@@ -44,6 +44,8 @@ group :test do
   gem 'database_cleaner'
   gem "factory_bot_rails", "~> 4.0"
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'rspec_api_documentation'
+  gem "apitome"
 end
 
 group :development do
