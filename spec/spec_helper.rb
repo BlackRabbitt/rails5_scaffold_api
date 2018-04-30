@@ -13,6 +13,9 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'rspec_api_documentation'
+
 RspecApiDocumentation.configure do |config|
   config.format = :json
 end

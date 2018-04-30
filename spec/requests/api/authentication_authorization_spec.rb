@@ -31,7 +31,7 @@ describe "proper access", type: :request do
       login(@current_api_user.email, @current_api_user.password)
       auth_params = get_auth_params_from_login_response_headers(response)
       role_params = Hash.new
-      role_params[:roles] = {label: "user"}
+      role_params[:role] = {label: "user"}
       post api_roles_path, params: role_params, headers: auth_params
 
       expect(response.status).to eq(401)
