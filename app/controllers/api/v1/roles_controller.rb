@@ -21,6 +21,8 @@ class Api::V1::RolesController < ApplicationController
 
     if role.save
       render json: {record: role, message: "record created successfully"}.to_json, status: 201
+    else
+      render json: {errors: role.errors}.to_json, status: 201
     end
   end
 
