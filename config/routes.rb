@@ -15,7 +15,6 @@ Rails.application.routes.draw do
         mount_devise_token_auth_for 'User', at: 'auth', controllers: { registrations: "api/overrides/registrations" }
 
         resources :roles, only: :create
-        resources :permissions, only: :create
       end
 
       resources :organizations, only: :create

@@ -38,6 +38,7 @@ gem 'rack-cors'
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :test do
